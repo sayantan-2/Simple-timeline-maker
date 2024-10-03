@@ -12,12 +12,6 @@
 
 ---
 
-## Bugs
-
-- **Fix long titles**: Long event titles may overflow or disrupt the layout. Proper word wrapping or truncation needs to be implemented to improve display.
-
----
-
 ## Future Features
 
 1. **Export the timeline as an image**: Add functionality to export timelines as PNG/JPEG images for easy sharing and downloading.
@@ -27,6 +21,8 @@
 3. **Grouping of timelines**: Introduce a feature to group related timelines under a single project or category for better organization.
 
 4. **Themes**: Add support for different themes (e.g., dark mode, light mode, color schemes) to allow users to personalize the look and feel of their timelines.
+
+5. **Markdown support in description area**: Update the description writing area to support Markdown formatting, allowing users to add formatted text, lists, links, etc., in their timeline events.
 
 ---
 
@@ -119,5 +115,13 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 ## License
 
 This project is licensed under the [MIT License](LICENSE), meaning you are free to use, modify, and distribute the code with proper attribution. However, commercial use of this project without permission is restricted.
+
+---
+
+### Change Log
+
+#### Bug Fixes
+
+- **Fixed long titles**: The issue with long event titles overflowing or disrupting the layout has been resolved. Titles now properly wrap or truncate as needed to maintain a clean layout.
 
 ---
