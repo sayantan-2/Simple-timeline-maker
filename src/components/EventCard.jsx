@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 export const EventCard = ({ event, onShowMore, onDelete }) => (
   <Card className="w-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
     <CardContent className="p-0">
-      <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-4">
+      <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 rounded-lg">
         <div className="flex justify-between items-start">
           <h3 className="text-xl font-bold text-white mb-1 leading-tight">
             {event.title}
