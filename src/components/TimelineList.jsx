@@ -1,10 +1,9 @@
-// components/TimelineList.jsx
 import React from "react";
 import { EventCard } from "./EventCard";
 
 const TimelineList = ({ events, onShowMore, onDelete }) => (
   <div className="relative">
-    <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-indigo-300 ml-6 md:ml-0 md:left-1/2"></div>
+    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 to-purple-600"></div>
     {events.map((event, index) => (
       <div
         key={event.id}
@@ -12,13 +11,11 @@ const TimelineList = ({ events, onShowMore, onDelete }) => (
           index % 2 === 0 ? "flex-row-reverse" : ""
         }`}
       >
-        <div className="order-1 w-5/12"></div>
-        <div className="z-20 flex items-center order-1 bg-indigo-500 shadow-xl w-8 h-8 rounded-full">
-          <h1 className="mx-auto font-semibold text-lg text-white">
-            {index + 1}
-          </h1>
+        <div className="w-5/12"></div>
+        <div className="z-20 flex items-center justify-center bg-white border-4 border-indigo-500 shadow-md w-12 h-12 rounded-full">
+          <span className="font-bold text-lg text-indigo-600">{index + 1}</span>
         </div>
-        <div className="order-1 w-5/12">
+        <div className="w-5/12">
           <EventCard
             event={event}
             onShowMore={onShowMore}
