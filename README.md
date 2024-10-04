@@ -12,20 +12,6 @@
 
 ---
 
-## Future Features
-
-1. **Export the timeline as an image**: Add functionality to export timelines as PNG/JPEG images for easy sharing and downloading.
-
-2. **Multiple page option**: Allow users to create and manage multiple timelines with the ability to switch between different pages.
-
-3. **Grouping of timelines**: Introduce a feature to group related timelines under a single project or category for better organization.
-
-4. **Themes**: Add support for different themes (e.g., dark mode, light mode, color schemes) to allow users to personalize the look and feel of their timelines.
-
-5. **Markdown support in description area**: Update the description writing area to support Markdown formatting, allowing users to add formatted text, lists, links, etc., in their timeline events.
-
----
-
 ## Get Started
 
 Follow these steps to clone the repository and set up the project locally.
@@ -118,10 +104,8 @@ This project is licensed under the [MIT License](LICENSE), meaning you are free 
 
 ---
 
-### Change Log
+## Changelog
 
-#### Bug Fixes
-
-- **Fixed long titles**: The issue with long event titles overflowing or disrupting the layout has been resolved. Titles now properly wrap or truncate as needed to maintain a clean layout.
+All updates, bug fixes, and new features are documented in the [Changelog](./CHANGELOG.md).
 
 ---
