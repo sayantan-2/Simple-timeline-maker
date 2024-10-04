@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Card, CardContent } from "./ui/card";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Card, CardContent } from "../ui/card";
 import ReactMarkdown from "react-markdown";
 
 const MAX_TITLE_LENGTH = 50;

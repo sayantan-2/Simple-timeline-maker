@@ -1,5 +1,5 @@
 import React from "react";
-import { EventCard } from "./EventCard";
+import { EventCard } from "./card/EventCard";
 
 const TimelineList = ({ events, onShowMore, onDelete }) => (
   <div className="relative">

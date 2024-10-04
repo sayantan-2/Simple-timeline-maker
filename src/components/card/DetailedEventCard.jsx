@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import ReactMarkdown from "react-markdown";
 
 export const DetailedEventCard = ({ event, onClose, onEdit }) => {

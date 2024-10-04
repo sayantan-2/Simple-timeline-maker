@@ -34,7 +34,7 @@ function App() {
   const addNewTimeline = () => {
     const newTimeline = {
       id: `timeline-${Date.now()}`,
-      name: `New Timeline ${timelines.length + 1}`,
+      name: `New Timeline`,
       events: []
     };
     setTimelines([...timelines, newTimeline]);
@@ -98,8 +98,8 @@ function App() {
               <div
                 key={timeline.id}
                 className={`p-3 rounded-md cursor-pointer flex items-center justify-between ${currentTimelineId === timeline.id
-                    ? 'bg-indigo-100 text-indigo-800'
-                    : 'hover:bg-gray-100'
+                  ? 'bg-indigo-100 text-indigo-800'
+                  : 'hover:bg-gray-100'
                   }`}
               >
                 <div

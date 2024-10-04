@@ -1,8 +1,8 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import EventForm from "./EventForm";
 import TimelineList from "./TimelineList";
-import { DetailedEventCard } from "./DetailedEventCard";
-import EditEventForm from "./EditEventForm";
+import { DetailedEventCard } from "./card/DetailedEventCard";
+import EditEventForm from "./card/EditEventForm";
 import AddEventButton from "./AddEventButton";
 import ExportButton from "./ExportButton";
 import PopupForm from "./PopupForm";
@@ -144,10 +144,6 @@ const Timeline = ({ events, onEventsUpdate, timelineName, onRename }) => {
               )}
             </div>
           </div>
-          <div className="fixed top-4 right-4 flex flex-col items-center space-y-6">
-            <AddEventButton onClick={() => setIsFormVisible(true)} />
-            {events.length > 0 && <ExportButton onClick={exportTimeline} />}
-          </div>
         </div>
 
         {isFormVisible && (
@@ -170,12 +166,19 @@ const Timeline = ({ events, onEventsUpdate, timelineName, onRename }) => {
           </PopupForm>
         )}
 
-        {events.length === 0 && (
-          <EventForm
-            newEvent={newEvent}
-            setNewEvent={setNewEvent}
-            onSubmit={addEvent}
-          />
+        {events.length === 0 ? (
+          <div className="text-center">
+            <EventForm
+              newEvent={newEvent}
+              setNewEvent={setNewEvent}
+              onSubmit={addEvent}
+            />
+          </div>
+        ) : (
+          <div className="fixed top-4 right-4 flex flex-col items-center space-y-6">
+            <AddEventButton onClick={() => setIsFormVisible(true)} />
+            <ExportButton onClick={exportTimeline} />
+          </div>
         )}
 
         <TimelineList

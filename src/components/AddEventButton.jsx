@@ -5,11 +5,11 @@ const AddEventButton = ({ onClick }) => (
   <div className="text-center">
     <Button
       onClick={onClick}
-      className="rounded-full w-12 h-12 bg-indigo-600 hover:bg-indigo-700 text-white text-2xl font-bold"
+      className="rounded-full w-14 h-14 bg-indigo-600 hover:bg-indigo-700 text-white text-3xl font-bold shadow-md transition-all duration-300 ease-in-out transform hover:scale-105"
     >
       +
     </Button>
-    <p className="mt-1 text-sm text-indigo-600 font-medium">Add Event</p>
+    <p className="mt-2 text-sm text-indigo-600 font-semibold">Add Event</p>
   </div>
 );
 
