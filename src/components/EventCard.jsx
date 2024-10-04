@@ -11,11 +11,26 @@ export const EventCard = ({ event, onShowMore, onDelete }) => (
           <h3 className="text-xl font-bold text-white mb-1 leading-tight">
             {event.title}
           </h3>
+        </div>
+        <p className="text-sm font-medium text-white/80">
+          {new Date(event.date).toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </p>
+      </div>
+      <div className="p-4">
+        <div className="text-gray-600 text-sm line-clamp-3 prose prose-sm max-w-none mb-4">
+          <ReactMarkdown>{event.description}</ReactMarkdown>
+        </div>
+        <div className="flex justify-between">
           <Button
             onClick={() => onDelete(event.id)}
             variant="ghost"
             size="icon"
-            className="text-white/70 hover:text-white hover:bg-white/10 transition-colors duration-200 rounded-full"
+            // className="text-white/70 hover:text-white hover:bg-white/10 transition-colors duration-200 rounded-full"
+            className="text-gray-500 hover:text-red-600 p-1 rounded-md transition-colors flex-shrink-0"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -30,20 +45,6 @@ export const EventCard = ({ event, onShowMore, onDelete }) => (
               />
             </svg>
           </Button>
-        </div>
-        <p className="text-sm font-medium text-white/80">
-          {new Date(event.date).toLocaleDateString(undefined, {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
-        </p>
-      </div>
-      <div className="p-4">
-        <div className="text-gray-600 text-sm line-clamp-3 prose prose-sm max-w-none mb-4">
-          <ReactMarkdown>{event.description}</ReactMarkdown>
-        </div>
-        <div className="flex justify-end">
           <Button
             onClick={() => onShowMore(event)}
             variant="outline"

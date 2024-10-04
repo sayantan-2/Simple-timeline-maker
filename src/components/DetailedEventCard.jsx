@@ -30,7 +30,7 @@ export const DetailedEventCard = ({ event, onClose, onEdit }) => {
     >
       <div
         ref={contentRef}
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col relative animate-in fade-in duration-200"
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col relative animate-in fade-in duration-200"
       >
         <button
           onClick={onClose}
@@ -88,9 +88,9 @@ export const DetailedEventCard = ({ event, onClose, onEdit }) => {
               <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
             </svg>
           </Button>
-          <Button onClick={onClose} variant="ghost">
+          {/* <Button onClick={onClose} variant="ghost">
             Close
-          </Button>
+          </Button> */}
         </div>
       </div>
     </div>
