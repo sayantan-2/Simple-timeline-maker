@@ -71,6 +71,15 @@ export const useTimelines = () => {
       )
     );
   };
+  const importTimelines = (importedEvents, timelineName) => {
+    const newTimeline = {
+      id: `timeline-${Date.now()}`,
+      name: timelineName,
+      events: importedEvents,
+    };
+    setTimelines([...timelines, newTimeline]);
+    setCurrentTimelineId(newTimeline.id);
+  };
 
   return {
     timelines,
@@ -81,5 +90,6 @@ export const useTimelines = () => {
     deleteTimeline,
     renameTimeline,
     setCurrentTimelineId,
+    importTimelines,
   };
 };

@@ -91,7 +91,7 @@ const Timeline = ({ events, onEventsUpdate, timelineName, onRename }) => {
       "data:application/json;charset=utf-8," + encodeURIComponent(dataStr);
     const exportFileDefaultName = `${timelineName
       .toLowerCase()
-      .replace(/\s+/g, "-")}-export.json`;
+      .replace(/\s+/g, "-")}.json`;
 
     const linkElement = document.createElement("a");
     linkElement.setAttribute("href", dataUri);

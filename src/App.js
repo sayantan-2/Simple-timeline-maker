@@ -16,6 +16,7 @@ const App = () => {
     deleteTimeline,
     renameTimeline,
     setCurrentTimelineId,
+    importTimelines,
   } = useTimelines();
 
   return (
@@ -32,6 +33,7 @@ const App = () => {
         onAddTimeline={addNewTimeline}
         onTimelineSelect={setCurrentTimelineId}
         onTimelineDelete={deleteTimeline}
+        onImportTimeline={importTimelines}
       />
 
       <div
