@@ -9,14 +9,15 @@
 
 ### Fixed
 
-- **Long titles**: Fixed issue where long event titles overflowed and disrupted layout. Titles now wrap or truncate properly.
+- **Long timeline titles**: Fixed issue where long event titles overflowed and disrupted layout. Titles now wrap or truncate properly.
 
 ### Bugs
 
-- **Long timeline title overflow**: Current implementation allows long timeline titles to overflow, affecting layout.
+- **Long event titles hide the delete button**: In individual events, long titles can overlap and hide the delete button, making it inaccessible.
 
 ### Planned Features
 
 - **Export the timeline as an image**: Add functionality to export the created timeline as an image (PNG/JPEG).
+- **Import feature**: Allow users to import timeline data from a JSON file to restore or edit previously created timelines.
 - **Grouping of timelines**: Group related timelines under a single project or category.
 - **Themes**: Apply different visual themes to timelines.

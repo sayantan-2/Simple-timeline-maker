@@ -4,6 +4,7 @@ import TimelineList from "./TimelineList";
 import { DetailedEventCard } from "./DetailedEventCard";
 import EditEventForm from "./EditEventForm";
 import AddEventButton from "./AddEventButton";
+import ExportButton from "./ExportButton";
 import PopupForm from "./PopupForm";
 import { Pencil } from "lucide-react";
 
@@ -45,6 +46,7 @@ const Timeline = ({ events, onEventsUpdate, timelineName, onRename }) => {
 
   const handleTitleKeyDown = (e) => {
     if (e.key === "Enter") {
+      e.preventDefault();
       finishEditing();
     } else if (e.key === "Escape") {
       setEditedTitle(timelineName);
@@ -103,56 +105,50 @@ const Timeline = ({ events, onEventsUpdate, timelineName, onRename }) => {
 
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto relative">
         <div className="flex justify-between items-start gap-4 mb-8">
           <div className="flex-grow max-w-[70%]">
-            {isEditingTitle ? (
-              <div className="w-full">
-                <textarea
-                  ref={titleInputRef}
-                  value={editedTitle}
-                  onChange={handleTitleChange}
-                  onBlur={handleTitleBlur}
-                  onKeyDown={handleTitleKeyDown}
-                  className="text-4xl font-bold text-indigo-600 bg-transparent border-b-2 border-indigo-600 focus:outline-none focus:border-indigo-800 w-full resize-none overflow-hidden"
-                  style={{
-                    minHeight: "3rem",
-                    height: "auto",
-                  }}
-                  onInput={(e) => {
-                    e.target.style.height = "auto";
-                    e.target.style.height = e.target.scrollHeight + "px";
-                  }}
-                />
-              </div>
-            ) : (
-              <div className="group flex items-start gap-2">
-                <h1 className="text-4xl font-bold text-indigo-600 whitespace-pre-wrap break-words">
-                  {timelineName}
-                </h1>
-                <button
-                  onClick={startEditing}
-                  className="text-gray-500 hover:text-indigo-600 p-1 rounded-md transition-colors opacity-0 group-hover:opacity-100 mt-2"
-                  title="Rename Timeline"
-                >
-                  <Pencil size={20} />
-                </button>
-              </div>
-            )}
+            <div className="group relative">
+              {isEditingTitle ? (
+                <div className="w-full">
+                  <textarea
+                    ref={titleInputRef}
+                    value={editedTitle}
+                    onChange={handleTitleChange}
+                    onBlur={handleTitleBlur}
+                    onKeyDown={handleTitleKeyDown}
+                    className="text-4xl font-bold text-indigo-600 bg-transparent border-b-2 border-indigo-600 focus:outline-none focus:border-indigo-800 w-full resize-none overflow-hidden"
+                    style={{
+                      minHeight: "3rem",
+                      height: "auto",
+                    }}
+                    onInput={(e) => {
+                      e.target.style.height = "auto";
+                      e.target.style.height = e.target.scrollHeight + "px";
+                    }}
+                  />
+                </div>
+              ) : (
+                <>
+                  <h1 className="text-4xl font-bold text-indigo-600 break-words pr-12">
+                    {timelineName}
+                  </h1>
+                  <button
+                    onClick={startEditing}
+                    className="absolute top-0 right-0 text-gray-500 hover:text-indigo-600 p-1 rounded-md transition-colors opacity-0 group-hover:opacity-100"
+                    title="Rename Timeline"
+                  >
+                    <Pencil size={24} />
+                  </button>
+                </>
+              )}
+            </div>
           </div>
-          {events.length > 0 && (
-            <button
-              onClick={exportTimeline}
-              className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 flex-shrink-0"
-            >
-              Export Timeline
-            </button>
-          )}
+          <div className="fixed top-4 right-4 flex flex-col items-center space-y-6">
+            <AddEventButton onClick={() => setIsFormVisible(true)} />
+            {events.length > 0 && <ExportButton onClick={exportTimeline} />}
+          </div>
         </div>
-
-        {events.length > 0 && (
-          <AddEventButton onClick={() => setIsFormVisible(true)} />
-        )}
 
         {isFormVisible && (
           <PopupForm onClose={() => setIsFormVisible(false)}>
