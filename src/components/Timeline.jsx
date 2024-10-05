@@ -7,6 +7,9 @@ import AddEventButton from "./AddEventButton";
 import ExportButton from "./ExportButton";
 import PopupForm from "./PopupForm";
 import { Pencil } from "lucide-react";
+import ExportImageButton from "./ExportImageButton";
+import TimelineGenerator from "./TimelineGenerator";
+import TimelineGeneratorModal from "./TimelineGeneratorModal";
 
 const Timeline = ({ events, onEventsUpdate, timelineName, onRename }) => {
   const [newEvent, setNewEvent] = useState({
@@ -102,7 +105,8 @@ const Timeline = ({ events, onEventsUpdate, timelineName, onRename }) => {
   const sortedEvents = useMemo(() => {
     return [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
   }, [events]);
-
+  const [isTimelineGeneratorVisible, setIsTimelineGeneratorVisible] =
+    useState(false);
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto relative">
@@ -178,6 +182,9 @@ const Timeline = ({ events, onEventsUpdate, timelineName, onRename }) => {
           <div className="fixed top-4 right-4 flex flex-col items-center space-y-6">
             <AddEventButton onClick={() => setIsFormVisible(true)} />
             <ExportButton onClick={exportTimeline} />
+            <ExportImageButton
+              onClick={() => setIsTimelineGeneratorVisible(true)}
+            />
           </div>
         )}
 
@@ -197,6 +204,12 @@ const Timeline = ({ events, onEventsUpdate, timelineName, onRename }) => {
             }}
           />
         )}
+        <TimelineGeneratorModal
+          isOpen={isTimelineGeneratorVisible}
+          onClose={() => setIsTimelineGeneratorVisible(false)}
+        >
+          <TimelineGenerator events={events} />
+        </TimelineGeneratorModal>
       </div>
     </div>
   );
